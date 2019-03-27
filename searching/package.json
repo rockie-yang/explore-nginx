@@ -1,0 +1,14 @@
+{
+  "name": "searching",
+  "version": "1.0.0",
+  "description": "A model hyper parameter searching app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Rockie Yang",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}
