@@ -1,0 +1,33 @@
+version: '3'
+services:
+
+  serving1:
+    image: node:11.12
+    hostname: serving1
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./serving.js:/bin/serving.js
+    command: bash -c "node /bin/serving.js"
+  serving2:
+    image: node:11.12
+    hostname: serving2
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./serving.js:/bin/serving.js
+    command: bash -c "node /bin/serving.js"
+
+  nginx:
+    image: nginx:1.15
+    ports:
+      - "8080:80"
+      - "8443:443"
+    volumes:
+      - ./http.conf:/etc/nginx/conf.d/default.conf
+      - ./https.conf:/etc/nginx/conf.d/https.conf
+      - ./example.key:/etc/nginx/ssl/example.key
+      - ./example.crt:/etc/nginx/ssl/example.crt
+    depends_on:
+      - serving1
+      - serving2

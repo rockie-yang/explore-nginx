@@ -10,6 +10,9 @@ services:
       - ./https.conf:/etc/nginx/conf.d/https.conf
       - ./example.key:/etc/nginx/ssl/example.key
       - ./example.crt:/etc/nginx/ssl/example.crt
+    depends_on:
+      - serving
+      - searching
   serving:
     image: node:11.12
     hostname: serving

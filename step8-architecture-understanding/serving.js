@@ -4,10 +4,7 @@ const port = 3000
 
 const requestHandler = (request, response) => {
   console.log(request.url)
-  setTimeout(function() {
-    response.end('Hello, This is machine learning model hyper parameters searching Server! from ' + os.hostname())
-    }, 3000);
-
+  response.end('Hello, This is machine learning model serving application! from ' + os.hostname())
 }
 
 const server = http.createServer(requestHandler)
