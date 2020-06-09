@@ -4,7 +4,11 @@ const port = 3000
 const requestHandler = (request, response) => {
   console.log(request.url)
   response.writeHeader(200, {"Content-Type": "text/html"});
-  response.write('Hello, This is machine learning model serving application! <a href="a-link-from-serving">serving</a>');
+  //  http://localhost:3000/a-link-from-serving
+  //  http://localhost:8080/serving/a-link-from-serving
+
+  response.write("Hello, This is machine learning model serving application! <br>" );
+  response.write(`request url ${request.url}  <a href="relative-path">relative-path</a> and <a href="/absolute-path">absolute-path</a>`);
   response.end()
 }
 
