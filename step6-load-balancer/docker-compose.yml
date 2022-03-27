@@ -13,7 +13,7 @@ services:
     image: node:11.12
     hostname: serving2
     ports:
-      - "3000:3000"
+      - "3001:3000"
     volumes:
       - ./serving.js:/bin/serving.js
     command: bash -c "node /bin/serving.js"
